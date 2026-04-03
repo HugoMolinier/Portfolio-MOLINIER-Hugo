@@ -2,12 +2,19 @@ import React from "react";
 import EngiePage from "@/(projects)/DetailProject/EngiePage";
 import MultiModal_Travel from "@/(projects)/DetailProject/MultiModal_Travel";
 import DashBoard from "@/(projects)/DetailProject/DashBoard";
+import DyeNTrack from "@/(projects)/DetailProject/DyeNTrack";
 
-export type ProjectSlug = "engie" | "MultiModal_Travel" | "Dashboard";
+export type ProjectSlug =
+  | "engie"
+  | "MultiModal_Travel"
+  | "Dashboard"
+  | "DyeNTrack";
 
+export type ProjetType = "pro" | "perso";
 interface Project {
-  background: string;
-  tagList: string[];
+  type: ProjetType;
+  background?: string;
+  tagList?: string[];
   text: { minText: string; title: string; explain: string };
   image: string;
   leftimage: string;
@@ -17,6 +24,7 @@ interface Project {
 
 export const projects: Record<ProjectSlug, Project> = {
   engie: {
+    type: "pro",
     background: "linear-gradient(67deg, #CDCEED 0%, #E4E692 50%, #B2C073 100%)",
     tagList: ["React Native", "Terraform"],
     text: {
@@ -41,6 +49,7 @@ export const projects: Record<ProjectSlug, Project> = {
   },
 
   MultiModal_Travel: {
+    type: "pro",
     background: "linear-gradient(67deg, #CDCEED 0%, #D8EAF8 50%, #CBD6AB 100%)",
     tagList: ["Java", "React Native", "ReactJS"],
     text: {
@@ -64,6 +73,7 @@ export const projects: Record<ProjectSlug, Project> = {
   },
 
   Dashboard: {
+    type: "pro",
     background: "linear-gradient(67deg, #CFAFD5 0%, #FBDDD3 50%, #FFF2CF 100%)",
     tagList: ["JavaScript", "PHP"],
     text: {
@@ -82,6 +92,34 @@ export const projects: Record<ProjectSlug, Project> = {
       { id: "problèmes", label: "Problèmes rencontrés" },
       { id: "résultats", label: "Résultats & Présentation" },
       { id: "améliorations", label: "Améliorations possibles" },
+      { id: "apprentissage", label: "Apprentissage" },
+      { id: "lien", label: "Lien" },
+    ],
+  },
+  DyeNTrack: {
+    type: "perso",
+    background:
+      "linear-gradient(67deg, rgba(227, 255, 231, 1) 0%, rgba(217, 231, 255, 1) 100%)",
+    tagList: ["Kotlin", "Spring Boot", "Azure"],
+    text: {
+      minText: "Projet Perso 2025 - DyeNTrack",
+      title: "Application de Suivi Sportif",
+      explain:
+        "Développement FullStack d'une app mobile pour reproduire un cahier d'entrainement. Permettant de tracker ça progression.",
+    },
+    image: "/image/DyeNTrack/image.png",
+    leftimage: "/image/DyeNTrack/left.png",
+    component: DyeNTrack,
+
+    sections: [
+      { id: "introduction", label: "Introduction" },
+      { id: "organisation", label: "Organisation & Méthodologie" },
+      { id: "missions", label: "Conception & Développement Full-Stack" },
+      { id: "design", label: "Design" },
+      { id: "decouvertes", label: "Découvertes Techniques" },
+      { id: "problèmes", label: "Problèmes rencontrés" },
+      { id: "résultats", label: "Résultats & Présentation" },
+      { id: "améliorations", label: "Perspectives & Améliorations possibles" },
       { id: "apprentissage", label: "Apprentissage" },
       { id: "lien", label: "Lien" },
     ],

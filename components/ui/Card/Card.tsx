@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
 import { SizeButton, VariantButton } from "@component/ui/Button/Button.style";
-
-import Tag from "@component/ui/Tag/Tag";
-
-import Button from "@component/ui/Button/Button";
+import { TextZoneCard } from "./TextZoneCard";
 
 type CardProps = {
   tagList?: string[];
@@ -17,7 +14,7 @@ type CardProps = {
     explain?: string;
   };
 
-  variant?: "home" | "full";
+  variant?: "home" | "full" | "side";
 
   button?: {
     textButton: string;
@@ -50,7 +47,8 @@ export default function Card({
   onClick,
 }: CardProps) {
   const [hovered, setHovered] = useState(false);
-
+  const cardHeight =
+    variant === "home" ? "420px" : variant === "side" ? "268px" : "auto";
   return (
     <div
       onMouseEnter={() => setHovered(true)}
@@ -61,142 +59,92 @@ export default function Card({
 
         position: "relative",
 
-        cursor: variant === "home" ? "pointer" : "default",
+        cursor:
+          variant === "home" || variant === "side" ? "pointer" : "default",
 
-        background: background ?? "#fff",
-
-        maxHeight: variant === "home" ? "424px" : "380px",
-
-        height: "auto",
+        background: variant !== "side" ? (background ?? "#fff") : undefined,
+        height: cardHeight,
 
         display: "flex",
-        paddingTop: "32px",
+        paddingTop: variant === "home" ? "32px" : "12px",
 
-        gap: "0px",
+        flexDirection: variant === "side" ? "row-reverse" : "row",
+        gap: variant === "side" ? "32px" : 0,
 
-        flexWrap: "wrap",
-
+        flexWrap: variant === "full" ? "nowrap" : "wrap",
         overflow: "hidden",
       }}
     >
       {/* Colonne de gauche - tags */}
-      {variant === "home" && (
-        <div
-          style={{
-            flex: "1 1 32%",
-
-            minWidth: "300px",
-
-            height: "auto",
-
-            display: "flex",
-
-            padding: "0 32px 32px 32px",
-
-            gap: "16px",
-
-            flexDirection: "column",
-
-            justifyContent: "space-between",
-          }}
-        >
-          {tagList && (
-            <div
-              style={{
-                display: "flex",
-
-                justifyContent: "flex-start",
-
-                gap: "8px",
-
-                flexWrap: "wrap",
-              }}
-            >
-              {tagList.map((tag, index) => (
-                <Tag key={index} text={tag} variant="project" />
-              ))}
-            </div>
-          )}
-
-          <div
-            style={{
-              display: "flex",
-
-              flexDirection: "column",
-
-              gap: 8,
-            }}
-          >
-            {text?.minText && (
-              <span
-                className="subtext"
-                style={{
-                  color: "rgba(4, 13, 74, 0.5)",
-
-                  lineHeight: "normal",
-                }}
-              >
-                {text.minText}
-              </span>
-            )}
-            {text?.title && <h2>{text.title}</h2>}
-            {text?.explain && <span className="subtext">{text?.explain}</span>}
-
-            {button && (
-              <Button
-                size="lg"
-                text={button?.textButton}
-                accessibilityLabel="Voir plus d'informations"
-                onClick={onClick}
-              />
-            )}
-          </div>
-        </div>
+      {(variant === "home" || variant == "side") && (
+        <TextZoneCard
+          text={text}
+          button={button}
+          tagList={tagList}
+          centerVerticalyText={variant == "side"}
+        />
       )}
-
+      {/* Colonne de droite - l'image */}
       {variant === "full" && (
         <div
           style={{
             flex: "1 1 50%",
+            height: "100%",
+            display: "flex",
+            alignItems: "flex-end",
           }}
         >
-          <img src={leftImage} alt="" style={{ width: "100%" }} />
+          <img
+            src={leftImage}
+            alt=""
+            style={{
+              width: "auto",
+              height: "auto",
+              maxWidth: "100%",
+              maxHeight: "100%",
+              objectFit: "contain",
+              display: "block",
+            }}
+          />
         </div>
       )}
-      {/* Colonne de droite - l'image */}
       <div
         style={{
-          flex: "1 1 50%",
-
-          position: "relative",
+          flex:
+            variant === "side"
+              ? "1 1 40%"
+              : variant === "full"
+                ? "1 1 50%"
+                : "1 1 60%",
+          maxWidth:
+            variant === "side" ? "40%" : variant === "full" ? "50%" : "60%",
+          height: "auto",
+          padding: "0 12px 0 0",
+          maxHeight: cardHeight,
 
           display: "flex",
+          position: "relative",
+          background: variant === "side" ? background : undefined,
 
-          justifyContent: "flex-end",
-
-          marginTop: "auto",
+          borderRadius: "8px",
+          alignItems: "flex-end",
         }}
       >
         <img
           src={children}
           alt=""
           style={{
-            maxWidth: "98%",
-
-            maxHeight: "90%",
-
+            objectFit: "contain",
+            width: variant === "full" ? "100%" : "100%",
             height: "auto",
 
-            width: "auto",
-
-            objectFit: "contain",
-
             transition: "transform 0.3s ease",
-
-            transformOrigin: "bottom right",
-
+            transformOrigin:
+              variant === "side" ? "bottom left" : "bottom right",
             transform:
-              hovered && variant === "home" ? "scale(1.03)" : "scale(1)",
+              hovered && (variant === "home" || variant === "side")
+                ? "scale(1.03)"
+                : "scale(1)",
           }}
         />
       </div>

@@ -3,10 +3,10 @@
 :root {
   --color-primary: #040d4a;
   --color-secondary: #161e47;
-
-  --maxwidth-sectionMain: 960px;
-  --width-sectionMain: 90%;
-  --maxwidth-sectionProject: 85%;
+  --scale: 0.95;
+  --maxwidth-sectionMain: calc(960px * var(--scale));
+  --width-sectionMain: calc(90% * var(--scale));
+  --maxwidth-sectionProject: calc(85% * var(--scale));
 }
 
 body,
@@ -40,16 +40,16 @@ body::-webkit-scrollbar {
 /* GRANDS ÉCRANS > 960px */
 h1 {
   font-weight: 400;
-  font-size: 70px;
-  letter-spacing: -2.8px;
-  line-height: 120%;
+  font-size: calc(70px * var(--scale));
+  letter-spacing: calc(-2.8px * var(--scale));
+  line-height: calc(120% * var(--scale));
   margin: 0;
   padding: 0;
 }
 
 h2 {
   font-weight: 500;
-  font-size: 26px;
+  font-size: calc(26px * var(--scale));
   line-height: 100%;
   letter-spacing: 0.02em;
   margin: 0;
@@ -58,7 +58,7 @@ h2 {
 
 h3 {
   font-weight: 500;
-  font-size: 18px;
+  font-size: calc(18px * var(--scale));
   line-height: normal;
   letter-spacing: 0.02em;
   margin: 0;
@@ -67,8 +67,8 @@ h3 {
 
 h5 {
   font-weight: 400;
-  font-size: 18px;
-  line-height: 160%;
+  font-size: calc(18px * var(--scale));
+  line-height: calc(160% * var(--scale));
   letter-spacing: 0.02em;
   margin: 0;
   padding: 0;
@@ -76,16 +76,16 @@ h5 {
 
 p,
 li {
-  font-size: 16px;
+  font-size: calc(16px * var(--scale));
   letter-spacing: -0.2px;
-  line-height: 150%;
+  line-height: calc(150% * var(--scale));
   margin: 0;
   padding: 0;
 }
 
 .textlink {
   font-weight: 400;
-  font-size: 16px;
+  font-size: calc(16px * var(--scale));
   letter-spacing: -0.2px;
   color: var(--color-primary);
   text-decoration: none;
@@ -99,14 +99,14 @@ li {
 
 .subtext {
   font-weight: 400;
-  font-size: 14.4px;
-  line-height: 1.4em;
+  font-size: calc(14.4px * var(--scale));
+  line-height: calc(1.4em * var(--scale));
 }
 
 .subtextBoldlink {
   font-weight: 500;
-  font-size: 13.4px;
-  line-height: 20px;
+  font-size: calc(13.4px * var(--scale));
+  line-height: calc(20px * var(--scale));
   color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
@@ -119,13 +119,13 @@ li {
 
 .mintext {
   font-weight: 400;
-  font-size: 12px;
+  font-size: calc(12px * var(--scale));
   line-height: normal;
 }
 
 .toc-link {
   display: block;
-  font-size: 13px;
+  font-size: calc(13px * var(--scale));
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -167,10 +167,10 @@ li {
 }
 
 .responsive-image {
-  width: 278px;
-  height: 278px;
+  width: calc(278px * var(--scale));
+  height: calc(278px * var(--scale));
   float: right;
-  margin-left: 20px;
+  margin-left: calc(20px * var(--scale));
   border-radius: 8px;
 }
 .section {
@@ -185,30 +185,30 @@ li {
 /* ÉCRANS ≤ 960px */
 @media (max-width: 960px) {
   h1 {
-    font-size: clamp(48px, 5vw, 70px);
+    font-size: clamp(48px, 5vw, calc(70px * var(--scale)));
   }
   h2 {
-    font-size: clamp(18px, 3vw, 26px);
+    font-size: clamp(18px, 3vw, calc(26px * var(--scale)));
   }
   h3 {
-    font-size: clamp(14px, 2.5vw, 18px);
+    font-size: clamp(14px, 2.5vw, calc(15px * var(--scale)));
   }
   h5 {
-    font-size: clamp(12px, 2vw, 18px);
+    font-size: clamp(12px, 2vw, calc(18px * var(--scale)) px);
   }
   p,
   li,
   .textlink {
-    font-size: clamp(12px, 2.5vw, 16px);
+    font-size: clamp(12px, 2.5vw, calc(16px * var(--scale)) px);
   }
 
   .subtext {
-    font-size: clamp(10px, 2.5vw, 14.4px);
+    font-size: clamp(10px, 2.5vw, calc(14.4px * var(--scale)) px);
   }
 
   /* IMAGE RÉACTIVE */
   .responsive-image {
-    width: clamp(150px, 25vw, 278px);
+    width: clamp(150px, 25vw, calc(278px * var(--scale)));
     height: auto;
   }
 }

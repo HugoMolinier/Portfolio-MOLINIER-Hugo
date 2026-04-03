@@ -9,7 +9,7 @@ export default function ProjectsSection() {
   const router = useRouter();
   const proProjects = useMemo(() => {
     return Object.entries(projects).filter(
-      ([_, project]) => project.type === "pro",
+      ([_, project]) => project.type === "perso",
     );
   }, []);
   return (
@@ -25,6 +25,7 @@ export default function ProjectsSection() {
           <Card
             background={project.background}
             tagList={project.tagList}
+            variant="side"
             text={project.text}
             button={{ textButton: "Voir en détails" }}
             onClick={() => router.push(`/${key}`)}

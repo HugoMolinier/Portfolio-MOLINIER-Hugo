@@ -1,50 +1,7 @@
 "use client";
 import React from "react";
 import Box from "@component/ui/Box/Box";
-
-export const categories = [
-  {
-    label: "Base de données ",
-    skills: [
-      { name: "WAMP server", iconsrc: "/image/icons/logiciel/wamp.svg" },
-      { name: "PostgreSQL", iconsrc: "/image/icons/logiciel/Postgresql.svg" },
-      { name: "MongoDB", iconsrc: "/image/icons/logiciel/mongodb.svg" },
-      { name: "Neo4J", iconsrc: "/image/icons/logiciel/New4j.svg" },
-    ],
-  },
-  {
-    label: "Emulation",
-    skills: [
-      {
-        name: "Oracle VM Virtual Box",
-        iconsrc: "/image/icons/logiciel/Virtualbox.svg",
-      },
-      {
-        name: "Android Studio",
-        iconsrc: "/image/icons/logiciel/Android_Studio.svg",
-      },
-      { name: "XCode", iconsrc: "/image/icons/logiciel/Xcode.svg" },
-      { name: "Arduino IDE", iconsrc: "/image/icons/logiciel/arduinoIDE.svg" },
-    ],
-  },
-  {
-    label: "Réseau",
-    skills: [
-      {
-        name: "Cisco Packet Tracer",
-        iconsrc: "/image/icons/logiciel/cisco.svg",
-      },
-    ],
-  },
-  {
-    label: "Systèmes",
-    skills: [
-      { name: "Debian", iconsrc: "/image/icons/logiciel/debian.svg" },
-      { name: "Ubuntu", iconsrc: "/image/icons/logiciel/ubuntu.svg" },
-      { name: "Alpine Linux", iconsrc: "/image/icons/logiciel/alpine.svg" },
-    ],
-  },
-];
+import { categoriesHardware } from "@lib/competence";
 
 export default function CompetencesContentHardware() {
   return (
@@ -55,7 +12,7 @@ export default function CompetencesContentHardware() {
         gap: 32,
       }}
     >
-      {categories.map((category) => (
+      {categoriesHardware.map((category) => (
         <div
           key={category.label}
           style={{

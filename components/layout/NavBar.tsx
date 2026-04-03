@@ -54,7 +54,6 @@ export default function NavBar({ isFixed = true }: NavBarProps) {
             A Propos
           </a>
           <Button
-            icon="download"
             size="md"
             text="Mon CV"
             accessibilityLabel="Voir plus d'informations"

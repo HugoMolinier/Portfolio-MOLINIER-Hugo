@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { getStyles, VariantTag } from "./Tag.style";
 import Icon from "@component/ui/Icon/Icon";
-import { n } from "node_modules/framer-motion/dist/types.d-Cjd591yU";
 type CardTagProps = {
   text?: string;
   variant?: VariantTag;

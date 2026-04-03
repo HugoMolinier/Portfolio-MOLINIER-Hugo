@@ -28,13 +28,16 @@ export default function Hero() {
             sizeIcon={32}
           />
           <div className="hero-title">
-            <h1>Développeur Full Stack orienté en Systèmes Embarqués</h1>
+            <h1>
+              Développeur Full Stack, middleware et Intelligence Artificielle
+            </h1>
           </div>
           <div className="hero-subtitle">
             <h5>
-              Je suis MOLINIER Hugo, passionné par le développement ainsi que
-              par l'IOT. <br />
-              Voici mon porfolio avec mes projets et stages effectués
+              Je suis MOLINIER Hugo, passionné par les flux de données, le
+              Middleware et les systèmes IoT. <br />
+              Retrouvez ici mes projets ainsi que mes expériences
+              professionnelles.
             </h5>
           </div>
         </div>

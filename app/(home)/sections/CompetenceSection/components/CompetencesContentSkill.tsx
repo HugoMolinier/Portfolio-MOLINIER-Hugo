@@ -1,44 +1,7 @@
 "use client";
 import React from "react";
 import Box from "@component/ui/Box/Box";
-
-export const categories = [
-  {
-    label: "Mobile / Web",
-    skills: [
-      { name: "ReactJS", iconsrc: "/image/icons/skill/react.svg" },
-      { name: "React Native", iconsrc: "/image/icons/skill/react.svg" },
-      { name: "Java Script", iconsrc: "/image/icons/skill/JS.svg" },
-      { name: "PHP", iconsrc: "/image/icons/skill/php.svg" },
-      { name: "Html & CSS", iconsrc: "/image/icons/skill/html.svg" },
-    ],
-  },
-  {
-    label: "Programmation",
-    skills: [
-      { name: "Python", iconsrc: "/image/icons/skill/python.svg" },
-      { name: "Java", iconsrc: "/image/icons/skill/java.svg" },
-      { name: "Language C", iconsrc: "/image/icons/skill/c.svg" },
-      { name: "Google App Script", iconsrc: "/image/icons/skill/google.svg" },
-    ],
-  },
-  {
-    label: "Base de données",
-    skills: [
-      { name: "SQL", iconsrc: "/image/icons/skill/sql.svg" },
-      { name: "NoSQL", iconsrc: "/image/icons/skill/nosql.svg" },
-      { name: "PL/SQL", iconsrc: "/image/icons/skill/plsql.svg" },
-    ],
-  },
-  {
-    label: "Outil",
-    skills: [
-      { name: "Bash", iconsrc: "/image/icons/skill/bash.svg" },
-      { name: "Git", iconsrc: "/image/icons/skill/git.svg" },
-      { name: "Docker", iconsrc: "/image/icons/skill/docker.svg" },
-    ],
-  },
-];
+import { categoriesSkill } from "@lib/competence";
 
 export default function CompetencesContentSkill() {
   return (
@@ -49,7 +12,7 @@ export default function CompetencesContentSkill() {
         gap: 32,
       }}
     >
-      {categories.map((category) => (
+      {categoriesSkill.map((category) => (
         <div
           key={category.label}
           style={{

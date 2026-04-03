@@ -2,10 +2,10 @@
 import React from "react";
 import CardView from "./components/CardView";
 
-export default function Project() {
+export default function SideProkect() {
   return (
     <section
-      id="projets"
+      id="sideprojets"
       className="section"
       style={{
         scrollMarginTop: "28px",
@@ -16,7 +16,7 @@ export default function Project() {
     >
       <div
         style={{
-          padding: "80px 5px 48px 5px",
+          padding: "40px 5px 48px 5px",
           display: "flex",
           gap: 12,
           lineHeight: 1,
@@ -29,9 +29,9 @@ export default function Project() {
             color: "rgba(4, 13, 74, 0.5)",
           }}
         >
-          01
+          02
         </span>
-        <h3 style={{ margin: 0, lineHeight: 1 }}>Projets / Stage</h3>
+        <h3 style={{ margin: 0, lineHeight: 1 }}>Projets Personnels</h3>
       </div>
       <CardView />
     </section>

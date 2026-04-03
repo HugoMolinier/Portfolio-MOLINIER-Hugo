@@ -1,21 +1,7 @@
 "use client";
 import React from "react";
 import Box from "@component/ui/Box/Box";
-
-export const categories = [
-  {
-    label: "Langue maternelle",
-    skills: [{ name: "Francais", iconsrc: "/image/icons/langue/FR.svg" }],
-  },
-  {
-    label: "Intermédiaire avancé",
-    skills: [{ name: "Anglais", iconsrc: "/image/icons/langue/UK.svg" }],
-  },
-  {
-    label: "Elémentaire",
-    skills: [{ name: "Allemand", iconsrc: "/image/icons/langue/GE.svg" }],
-  },
-];
+import { categoriesLangue } from "@lib/competence";
 
 export default function CompetencesContentLangue() {
   return (
@@ -26,7 +12,7 @@ export default function CompetencesContentLangue() {
         gap: 32,
       }}
     >
-      {categories.map((category) => (
+      {categoriesLangue.map((category) => (
         <div
           key={category.label}
           style={{

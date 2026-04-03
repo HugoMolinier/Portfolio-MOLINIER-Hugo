@@ -1,20 +1,6 @@
 "use client";
 import React from "react";
-
-const parcours = [
-  {
-    nom: "Université Le Havre - Master Informatique",
-    années: "2025 - 2027",
-  },
-  {
-    nom: "Université Paris-Est Créteil - BUT Informatique",
-    années: "2022 - 2025",
-  },
-  {
-    nom: "Lycée Maurice Ravel - Bac Général",
-    années: "2018 - 2022",
-  },
-];
+import { parcours } from "@lib/parcours";
 
 export default function ParcoursComponent() {
   return (
@@ -43,7 +29,7 @@ export default function ParcoursComponent() {
             color: "rgba(4, 13, 74, 0.5)",
           }}
         >
-          03
+          04
         </span>
         <h3>Parcours</h3>
       </div>

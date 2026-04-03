@@ -38,7 +38,7 @@ export default function Competence() {
               color: "rgba(4, 13, 74, 0.5)",
             }}
           >
-            02
+            03
           </span>
           <h3>Compétences</h3>
         </div>
