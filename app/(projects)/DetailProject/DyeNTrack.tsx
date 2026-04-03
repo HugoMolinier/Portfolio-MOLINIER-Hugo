@@ -116,7 +116,7 @@ const DyeNTrack = () => {
         </p>
         <div style={imgContainerStyle}>
           <img
-            src="/image/DyeNTrack/Figma.png"
+            src="/image/DyeNTrack/figma.png"
             style={imageStyle}
             alt="Aperçu desgin Figma"
           />
